@@ -18,7 +18,7 @@ class CreateMediaTable extends Migration
             $table->string('type');
             $table->string('titre');
             $table->string('duree');
-            $table->date('annee');
+            $table->text('annee');
             $table->longText('description');
             $table->timestamps();
         });

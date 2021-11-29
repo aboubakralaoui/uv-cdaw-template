@@ -13,7 +13,7 @@ class CreateMediaPlaylisteTable extends Migration
      */
     public function up()
     {
-        Schema::create('media_mlayliste', function (Blueprint $table) {
+        Schema::create('media_playliste', function (Blueprint $table) {
             // $table->id();
             // $table->string('id_utilisateurs')->references('id')->on('utilisateurs');
             // $table->string('id_media')->references('id')->on('medias');

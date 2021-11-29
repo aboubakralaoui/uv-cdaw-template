@@ -17,8 +17,8 @@
     <!-- Core theme CSS (includes Bootstrap)-->
    
     <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
-    <link href="./../css/styles.css" rel="stylesheet">
-    <link href="./../css/test.css" rel="stylesheet">
+    <link href="./../../public/css/styles.css" rel="stylesheet" />
+    <link href="./../../public/css/test.css" rel="stylesheet" />
 
     <!-- <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" /> -->
 
@@ -362,33 +362,7 @@
             </ul>
         </div>
     </section>
-    <!-- Team-->
-   
-    <!-- Clients-->
-    <!-- prendre les logos de FACEBOOK  -->
-    <!-- <div class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-3 col-sm-6 my-3">
-                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/microsoft.svg"
-                            alt="..." /></a>
-                </div>
-                <div class="col-md-3 col-sm-6 my-3">
-                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg"
-                            alt="..." /></a>
-                </div>
-                <div class="col-md-3 col-sm-6 my-3">
-                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg"
-                            alt="..." /></a>
-                </div>
-                <div class="col-md-3 col-sm-6 my-3">
-                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/ibm.svg"
-                            alt="..." /></a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Contact-->
+ 
     <section class="page-section" id="contact">
         <div class="container">
             <div class="text-center">
@@ -723,7 +697,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="./../../public/js/scripts.js"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

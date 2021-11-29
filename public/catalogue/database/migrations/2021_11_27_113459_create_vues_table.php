@@ -14,12 +14,14 @@ class CreateVuesTable extends Migration
     public function up()
     {
         Schema::create('vues', function (Blueprint $table) {
-            $table->id('id_utilisateur');
-            $table->id('id_media');
-            $table->date('date');
+            $table->id();
+            $table->unsignedBigInteger('id_utilisateurs');
+            $table->unsignedBigInteger('id_media');
+            $table->text('date');
             $table->timestamps();
-
-            $table->primary(['is_utilisateur', 'id_media']);
+   
+            $table->foreign('id_utilisateurs')->references('id')->on('users');
+            $table->foreign('id_media')->references('id_media')->on('media');
         });
     }
 
