@@ -59,9 +59,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ Auth::logout() }}">Logout</a>
+                    </li>
                       @else
                     <li class="nav-item"> 
-                       
                         <a class="nav-link" href="{{ route('login') }}">Sindetifier</a>
                        </li>  
                    @if (Route::has('register'))
