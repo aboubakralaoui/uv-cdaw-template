@@ -17,7 +17,7 @@ class CreateVuesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_utilisateurs');
             $table->unsignedBigInteger('id_media');
-            $table->text('date');
+           
             $table->timestamps();
    
             $table->foreign('id_utilisateurs')->references('id')->on('users');

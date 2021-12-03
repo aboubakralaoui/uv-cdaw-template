@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Commentaire extends Model
 {
+    protected $table = "commentaires";
+    protected $primaryKey = "id";
+    protected $fillable = ['texte'];
     use HasFactory;
 }

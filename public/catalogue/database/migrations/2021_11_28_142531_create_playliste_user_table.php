@@ -17,7 +17,7 @@ class CreatePlaylisteUserTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_playliste');
             $table->unsignedBigInteger('id_user');
-            $table->text('date');
+         
             $table->timestamps();
    
             $table->foreign('id_user')->references('id')->on('users');

@@ -39,74 +39,35 @@
 
 <body>
 
-    <!-- <form action="{{ $films[0]->id; }}" method="post">
-        {{ csrf_field() }}
-        <table>
-            <tr>
-                <td>First Name</td>
-                <td>
-                    <input type='text' name='name' value='' />
-                </td>
-
-
-            </tr>
-            <tr>
-
-
-                <input type='submit' value="Update student" />
-                </td>
-            </tr>
-        </table>
-    </form> -->
-    <form  action="{{ $films[0]->id; }}" method="post">
+    <form id="addFilm" action="{{ $users[0]->id; }}" method="post">
         {{ csrf_field() }}
         <div class="container" style="background-color: aquamarine;border-radius: 10px;margin-top:100px">
         <div class="modal-body">
             <div class="form-group">
                 <label>Name</label>
-                <input type='text' name='name' class="form-control" value='<?php echo $films[0]->name; ?>'/>
+                <input type='text' name='name' class="form-control" value='<?php echo $users[0]->name; ?>'/>
 
             </div>
             <div class="form-group">
-                <label>Realisateur</label>
-                <input type="text" id="director" name="director" class="form-control" value='<?php echo $films[0]->director; ?>' required>
+                <label>Nom</label>
+                <input type="text" id="director" name="director" class="form-control" value='<?php echo $users[0]->nom; ?>' required>
 
             </div>
             <div class="form-group">
-                <label>Categorie</label>
+                <label>Prenom</label>
+                <input type="text" id="director" name="director" class="form-control" value='<?php echo $users[0]->prenom; ?>' required>
 
             </div>
-            <select class="form-control" aria-label="Default select example" name="category">
-                <option class="form-control" value='<?php echo $films[0]->category; ?>'></option>
-                @foreach($categories as $cat)
-                <option class="form-control">
-                    <?=   $cat->name; ?>
-                </option>
-                @endforeach;
-            </select>
+
             <div class="form-group">
-						<label>duree</label>
-            <input type="text" id="duree" name="duree" value='<?php echo $films[0]->duree; ?>'  class="form-control" required>
+						<label>Email</label>
+            <input type="text" id="duree" name="duree" value='<?php echo $users[0]->email; ?>'  class="form-control" required>
 						
 					</div>
-          <div class="form-group">
-						<label>annee</label>
-            <input type="text" id="annee" name="annee" value='<?php echo $films[0]->annee; ?>' class="form-control" required>
-						
-					</div>
-          <div class="form-group">
-						<label>Acteur Principale</label>
-            <input type="text" id="acteur_principale" value='<?php echo $films[0]->acteur_principale; ?>'  name="acteur_principale"  class="form-control" required>
-						
-					</div>
-          <div class="form-group">
-						<label>Description</label>
-            <input type="text" id="Description" name="Description" value='<?php echo $films[0]->Description; ?>' class="form-control" required>
-						
-					</div>
+     
           <div class="form-group">
 						<label>Path</label>
-            <input type="text" id="path" name="path" value='<?php echo $films[0]->path; ?>'  class="form-control" required>
+            <input type="text" id="path" name="path" value='<?php echo $users[0]->profile_photo_path; ?>'  class="form-control" required>
 						
 					</div>
 

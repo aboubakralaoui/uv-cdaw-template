@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Playliste extends Model
 {
-    use HasFactory;
+    protected $table = "playlistes";
+    protected $primaryKey = "id";
+    protected $fillable = ['name'];
 }

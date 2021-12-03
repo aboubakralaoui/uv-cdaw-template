@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vue extends Model
 {
-    use HasFactory;
+    protected $table = "vues";
+    protected $primaryKey = "id";
+    protected $fillable = ['id_utilisateurs','id_media'];
 }

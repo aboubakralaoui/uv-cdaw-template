@@ -1,3 +1,9 @@
+<?php
+    if (Auth::User()['banni'] ==1 ){
+        return view('banni');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +51,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                  
                  <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="film.html">films</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">films</a></li>
                     <li class="nav-item"><a class="nav-link" href="series.html">Series</a></li>
                     <li class="nav-item"><a class="nav-link" href="mangas.html">Mangas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about"> </a></li>

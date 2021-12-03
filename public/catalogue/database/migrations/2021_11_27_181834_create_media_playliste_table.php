@@ -23,7 +23,7 @@ class CreateMediaPlaylisteTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_playliste');
             $table->unsignedBigInteger('id_media');
-            $table->text('date');
+           
             $table->timestamps();
    
             $table->foreign('id_playliste')->references('id')->on('playlistes');

@@ -146,7 +146,7 @@
                             <!--                                </li>-->
                         </ul>
                         <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Recherche avancee"
+                            <input name="q" class="form-control me-2" type="search" placeholder="Recherche avancee"
                                 aria-label="Recherche">
                             <button class="btn btn-outline-success" type="submit">Recherche</button>
                         </form>

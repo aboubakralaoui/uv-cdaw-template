@@ -14,7 +14,7 @@ class CreateCommentairesTable extends Migration
     public function up()
     {
         Schema::create('commentaires', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')
             $table->text('texte');
             $table->timestamps();
         });

@@ -17,9 +17,7 @@ class CreateCommentaireMediaTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_commentaire');
             $table->unsignedBigInteger('id_media');
-            $table->text('date');
             $table->timestamps();
-   
             $table->foreign('id_commentaire')->references('id')->on('commentaires');
             $table->foreign('id_media')->references('id_media')->on('media');
         });

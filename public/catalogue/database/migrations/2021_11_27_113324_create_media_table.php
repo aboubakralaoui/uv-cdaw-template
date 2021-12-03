@@ -17,6 +17,7 @@ class CreateMediaTable extends Migration
             $table->increments('id_media');
             $table->string('type');
             $table->string('titre');
+            $table->string('image');
             $table->string('duree');
             $table->text('annee');
             $table->longText('description');

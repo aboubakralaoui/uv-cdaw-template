@@ -3,23 +3,30 @@
 namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\film;
+use App\Models\Commentaire;
 use App\Models\User;
+use App\Models\Vue;
 use App\Models\Media;
+use App\Models\Playliste;
+use App\Models\Jaime;
 use Illuminate\Http\Request;
+use App\Models\commentaire_user;
+use App\Models\commentaire_media;
+use App\Models\playliste_user;
+use App\Models\media_playliste;
 use Illuminate\Support\Facades\Auth;
-
+    use Illuminate\Support\Facades\DB;
 class listeMEdiasController extends Controller
 {
     public function hello(){
         return view("index");
     }
     public function mafonction( Request $req){
-        
         $IdFilm = $req->input("id");
         $nomFilm = $req->input("nom");
         echo  $IdFilm ;
         echo "<br>";
-        echo  $nomFilm ;
+        echo  $nomFilm;
     }
     public function mafonction1($name){
         
@@ -65,8 +72,7 @@ class listeMEdiasController extends Controller
 
         ];
         film::create($data);
-   
-       // print_r($req->input());
+
        return redirect('edits');
      
 
@@ -76,7 +82,7 @@ class listeMEdiasController extends Controller
         $categories = category::all();
         $films = film::where('id', $id)->get();
         return view('filmFormEdit1',['films'=>$films],['categories'=>$categories]);
-        }
+    }
 
     public function EditFilm(Request $req, $id){
 
@@ -89,9 +95,9 @@ class listeMEdiasController extends Controller
         $acteur_principale = $req->input("acteur_principale");
         $Description = $req->input("Description");
         $path = $req->input("path");
-       film::where('id', $id)->update(['name' => $name,'category'=>$category,'director'=>$director,'duree'=>$duree,'annee'=>$annee,'acteur_principale'=>$acteur_principale,'Description'=>$Description,'path'=>$path]);
-       print_r($req->input());
-       return redirect('edits');
+        film::where('id', $id)->update(['name' => $name,'category'=>$category,'director'=>$director,'duree'=>$duree,'annee'=>$annee,'acteur_principale'=>$acteur_principale,'Description'=>$Description,'path'=>$path]);
+        print_r($req->input());
+        return redirect('edits');
    
 
     }
@@ -111,11 +117,68 @@ class listeMEdiasController extends Controller
         return view('filmFormEdit',['films'=>$films]);
         
     }
+    public function showFilmsPage(){
+        $films = media::all();
+        
+    
+
+        $myPlaylists= DB::table('playliste_user')
+                    ->join('playlistes', 'playlistes.id', '=', 'playliste_user.id_playliste')
+                    ->where('id_user',Auth::user()->id)
+                    ->select('playlistes.name')
+                    ->get();
+       
+                    //echo count($myPlaylists);
+        return view('films',['films'=>$films]);
+        
+    }
     public function viewFilm($id){
+        $test= 1;
         
-        $films = film::where('id', $id)->get();
-        return view('film',['films'=>$films]);
-        
+        $myPlaylists= DB::table('playliste_user')
+        ->join('playlistes', 'playlistes.id', '=', 'playliste_user.id_playliste')
+        ->where('id_user',Auth::user()->id)
+        ->select('playlistes.name')
+        ->distinct()
+        ->get();
+        $c = 0;
+        for ($i = 0; $i<count($myPlaylists);$i++){
+            $testf[$i] = $myPlaylists[$i]->name;
+            $c++;
+        }
+ 
+        $d=0;
+
+        $idc = Jaime::where('id_media', $id)
+        ->where('id_utilisateurs',Auth::user()->id)
+        ->select('id')->get();               
+        if (count($idc)==0){
+           
+            $d = 1;
+        }
+
+
+        $l=0;
+        $idv = Vue::where('id_media', $id)
+        ->where('id_utilisateurs',Auth::user()->id)
+        ->select('id')->get(); 
+
+        if (count($idv)==0){ 
+            $l = 1;
+        }
+
+        $Comments = DB::table('commentaire_user')
+        ->join('commentaires', 'commentaire_user.id_commentaire', '=', 'commentaires.id')
+        ->join('commentaire_media', 'commentaire_media.id_commentaire', '=', 'commentaires.id')
+        ->join('users', 'commentaire_user.id_utilisateur', '=', 'users.id')
+        ->select('commentaires.texte','users.name')
+        ->where('id_media',$id)
+        ->get();
+
+         $films = Media::where('id_media', $id)->get();
+
+         return view('film',['films'=>$films, 'c'=>$c, 'd'=>$d,'l'=>$l,'myPlaylists'=>$myPlaylists,'Comments'=>$Comments] );
+
     }
     public function showMedias(){
         $medias = media::all();
@@ -132,5 +195,47 @@ class listeMEdiasController extends Controller
         return redirect('/');
     }
 
+    public function search(Request $req){
+        $q = $req->input('q');
+        $films = Media::where('titre','like',"%$q%")
+              ->orWhere('description','like',"%$q%")
+              ->paginate(6);
+              return view('search',['films'=>$films]);
+            
+    }
+
+    public function mapage(){
+        $films = media::all();
+        
+    
+
+        $myPlaylists= DB::table('playliste_user')
+                    ->join('playlistes', 'playlistes.id', '=', 'playliste_user.id_playliste')
+                    ->where('id_user',Auth::user()->id)
+                    ->select('playlistes.name')
+                    ->get();
+                  $c = 0;
+                    for ($i = 0; $i<count($myPlaylists);$i++){
+                        $testf[$i] = $myPlaylists[$i]->name;
+                        $c++;
+                    } 
+                    
+        $myFarories= DB::table('jaimes')
+                    ->join('users', 'users.id', '=', 'jaimes.id_utilisateurs')
+                    ->join('media', 'media.id_media', '=', 'jaimes.id_media')
+                    ->where('users.id',Auth::user()->id)
+                    //
+                    ->get();
+
+                  $d= 0;
+                    for ($i = 0; $i<count($myFarories);$i++){
+                        $testf[$i] = $myFarories[$i]->titre;
+                        $d++;
+                    } 
+                   // print_r($myFarories[0]->titre);
+
+         return view('mapage',['films'=>$films, 'myPlaylists'=>$myPlaylists, 'c'=>$c,'d'=>$d,'myFavories'=>$myFarories]);
+        
+    }
 
 }
