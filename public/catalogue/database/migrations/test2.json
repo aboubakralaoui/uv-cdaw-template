@@ -1,54 +1,77 @@
 {
-    "current_page": 1,
-    "data": [
+    "searchType": "Title",
+    "expression": "superman",
+    "results": [
         {
-            "id_media": 2,
-            "type": "Movie",
-            "titre": "The Godfather",
-            "image": "https:\/\/imdb-api.com\/images\/original\/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.7015_AL_.jpg",
-            "duree": "2h 55mins",
-            "annee": "1972",
-            "description": "The Godfather \"Don\" Vito Corleone is the head of the Corleone mafia family in New York. He is at the event of his daughter's wedding. Michael, Vito's youngest son and a decorated WW II Marine is also present at the wedding. Michael seems to be uninterested in being a part of the family business. Vito is a powerful man, and is kind to all those who give him respect but is ruthless against those who do not. But when a powerful and treacherous rival wants to sell drugs and needs the Don's influence for the same, Vito refuses to do it. What follows is a clash between Vito's fading old values and the new ways which may cause Michael to do the thing he was most reluctant in doing and wage a mob war against all the other mafia families which could tear the Corleone family apart.",
-            "created_at": null,
-            "updated_at": null
+            "id": "tt0078346",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BMzA0YWMwMTUtMTVhNC00NjRkLWE2ZTgtOWEzNjJhYzNiMTlkXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_Ratio0.7273_AL_.jpg",
+            "title": "Superman",
+            "description": "(1978)"
         },
         {
-            "id_media": 3,
-            "type": "Movie",
-            "titre": "The Godfather: Part II",
-            "image": "https:\/\/imdb-api.com\/images\/original\/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.7015_AL_.jpg",
-            "duree": "3h 22mins",
-            "annee": "1974",
-            "description": "The continuing saga of the Corleone crime family tells the story of a young Vito Corleone growing up in Sicily and in 1910s New York; and follows Michael Corleone in the 1950s as he attempts to expand the family business into Las Vegas, Hollywood and Cuba.",
-            "created_at": null,
-            "updated_at": null
+            "id": "tt0106057",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BZTU1ZGFjNzEtZWYzZC00ZmI0LTg2NmMtN2YyNTY4YzhlODIyXkEyXkFqcGdeQXVyMjExMjk0ODk@._V1_Ratio0.7273_AL_.jpg",
+            "title": "Lois & Clark: The New Adventures of Superman",
+            "description": "(1993) (TV Series)"
+        },
+        {
+            "id": "tt0044231",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BZmYwMzY4OWMtZmYxMC00M2VmLWFlZDgtMWEyY2IzNDdjNWRmXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_Ratio0.7273_AL_.jpg",
+            "title": "Adventures of Superman",
+            "description": "(1952) (TV Series)"
+        },
+        {
+            "id": "tt0279600",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BYmNiNzlhOWItMDM5Mi00MGYzLWI1ZDYtNmI5NzI0MWFkMTIwXkEyXkFqcGdeQXVyNjU2NjA5NjM@._V1_Ratio0.7273_AL_.jpg",
+            "title": "Smallville",
+            "description": "(2001) (TV Series) aka \"Young Superman\""
+        },
+        {
+            "id": "tt11192306",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BOTA2MDVhMWItNTYwYi00OTcyLWJjZmEtNTQ2NTAxMDQyYTQwXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_Ratio0.7273_AL_.jpg",
+            "title": "Superman and Lois",
+            "description": "(2021) (TV Series)"
+        },
+        {
+            "id": "tt0770828",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BMTk5ODk1NDkxMF5BMl5BanBnXkFtZTcwNTA5OTY0OQ@@._V1_Ratio0.7273_AL_.jpg",
+            "title": "Man of Steel",
+            "description": "(2013) aka \"Superman: Čovjek od čelika\""
+        },
+        {
+            "id": "tt0348150",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BNzY2ZDQ2MTctYzlhOC00MWJhLTgxMmItMDgzNDQwMDdhOWI2XkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_Ratio0.7273_AL_.jpg",
+            "title": "Superman Returns",
+            "description": "(2006)"
+        },
+        {
+            "id": "tt0086393",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BMzI3ZDllMTctNmI2Mi00OGQ4LTk2ZTQtYTJhMjA5ZGI2YmRkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_Ratio0.7273_AL_.jpg",
+            "title": "Superman III",
+            "description": "(1983)"
+        },
+        {
+            "id": "tt0081573",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BODk2NjgzNTEtYzZhZC00ZTBkLTllMGQtMmMxMzU1NDRkM2RlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_Ratio0.7273_AL_.jpg",
+            "title": "Superman II",
+            "description": "(1980)"
+        },
+        {
+            "id": "tt0040852",
+            "resultType": "Title",
+            "image": "https://imdb-api.com/images/original/MV5BZDQ1Y2Y3MDItMGMyNy00YTQyLWEyMWEtZTZmNjM1MGM2MDczXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_Ratio0.7273_AL_.jpg",
+            "title": "Superman",
+            "description": "(1948)"
         }
     ],
-    "first_page_url": "http:\/\/localhost\/test_final\/catalogue\/public\/search?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/test_final\/catalogue\/public\/search?page=1",
-    "links": [
-        {
-            "url": null,
-            "label": "&laquo; Previous",
-            "active": false
-        },
-        {
-            "url": "http:\/\/localhost\/test_final\/catalogue\/public\/search?page=1",
-            "label": "1",
-            "active": true
-        },
-        {
-            "url": null,
-            "label": "Next &raquo;",
-            "active": false
-        }
-    ],
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/test_final\/catalogue\/public\/search",
-    "per_page": 6,
-    "prev_page_url": null,
-    "to": 2,
-    "total": 2
+    "errorMessage": ""
 }

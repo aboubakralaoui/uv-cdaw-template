@@ -1,8 +1,3 @@
-<?php
-    if (Auth::User()['banni'] ==1 ){
-        return view('banni');
-    }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +46,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                  
                  <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="">films</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('films')}}">films</a></li>
                     <li class="nav-item"><a class="nav-link" href="series.html">Series</a></li>
                     <li class="nav-item"><a class="nav-link" href="mangas.html">Mangas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about"> </a></li>
@@ -59,7 +54,7 @@
                     <li class="nav-item"><a class="nav-link" href="#about"> </a></li>
                     <li class="nav-item"><a class="nav-link" href="#about"> </a></li>
                    
-                    <li class="nav-item"><a class="nav-link" href="">Langue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('/user/profile')}}">Mon Profile</a></li>
                    
                      @auth
                     <li class="nav-item">
@@ -86,81 +81,28 @@
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
+            
+           @if(Auth::user()['role'] == "administrateur")
+           <h1>Bonjour Administrateur</h1>
+           <h3><a class="nav-link" href="{{url('admin')}}">Administrez</a></h3>
+           @endif
             <div class="masthead-subheading">Bienvenue sur TVflix</div>
             <div class="masthead-heading text-uppercase">Regardez vos films en streaming</div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <!--                        <a class="navbar-brand" href="#">Navbar</a>-->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="Films" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Films
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Drame</a></li>
-                                    <li><a class="dropdown-item" href="#">Horreur</a></li>
-                                    <!--                                        <li><hr class="dropdown-divider"></li>-->
-                                    <li><a class="dropdown-item" href="#">Romance</a></li>
-                                    <li><a class="dropdown-item" href="#">Meilleur Films de touts les temps</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="Series" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Serie
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Drame</a></li>
-                                    <li><a class="dropdown-item" href="#">Horreur</a></li>
-                                    <!--                                        <li><hr class="dropdown-divider"></li>-->
-                                    <li><a class="dropdown-item" href="#">Romance</a></li>
-                                    <li><a class="dropdown-item" href="#">Meilleur Series de touts les temps</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Monga
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Drame</a></li>
-                                    <li><a class="dropdown-item" href="#">Horreur</a></li>
-                                    <!--                                        <li><hr class="dropdown-divider"></li>-->
-                                    <li><a class="dropdown-item" href="#">Romance</a></li>
-                                    <li><a class="dropdown-item" href="#">Meilleur Monga de touts les temps</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="Documentaire" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Documentaire
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Nature</a></li>
-                                    <li><a class="dropdown-item" href="#">Guerre</a></li>
-                                    <!--                                        <li><hr class="dropdown-divider"></li>-->
-                                    <li><a class="dropdown-item" href="#">Technologie</a></li>
-                                </ul>
-                            </li>
-                            <!--                                <li class="nav-item">-->
-                            <!--                                    <a class="nav-link disabled">Disabled</a>-->
-                            <!--                                </li>-->
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Recherche avancee"
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                       
+                        <form action="{{url('search')}}" class="d-flex" style="margin:auto">
+                            
+                            <input name="q" class="form-control" type="search" placeholder="Recherche avancee"
                                 aria-label="Recherche">
                             <button class="btn btn-outline-success" type="submit">Recherche</button>
+                        
                         </form>
                     </div>
                 </div>

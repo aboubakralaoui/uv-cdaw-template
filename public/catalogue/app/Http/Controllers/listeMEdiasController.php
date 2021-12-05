@@ -119,8 +119,6 @@ class listeMEdiasController extends Controller
     }
     public function showFilmsPage(){
         $films = media::all();
-        
-    
 
         $myPlaylists= DB::table('playliste_user')
                     ->join('playlistes', 'playlistes.id', '=', 'playliste_user.id_playliste')
@@ -130,6 +128,30 @@ class listeMEdiasController extends Controller
        
                     //echo count($myPlaylists);
         return view('films',['films'=>$films]);
+        
+    }
+    public function showSeriesPage(){
+
+        $series= DB::table('media')
+                   
+                    ->where('type','TVSeries')
+                   
+                    ->get();
+       
+                    //echo count($myPlaylists);
+        return view('series',['series'=> $series]);
+        
+    }
+    public function showMangasPage(){
+
+        $mangas= DB::table('media')
+                   
+                    ->where('type','monga')
+                   
+                    ->get();
+       
+                    //echo count($myPlaylists);
+        return view('mangas',['mangas'=> $mangas]);
         
     }
     public function viewFilm($id){
@@ -204,9 +226,9 @@ class listeMEdiasController extends Controller
             
     }
 
-    public function mapage(){
+    public function mapage(request $req){
         $films = media::all();
-        
+        $idp = $req->input('idp')  ;
     
 
         $myPlaylists= DB::table('playliste_user')
@@ -219,22 +241,35 @@ class listeMEdiasController extends Controller
                         $testf[$i] = $myPlaylists[$i]->name;
                         $c++;
                     } 
-                    
+
+        
+        $myVues= DB::table('media')
+                    ->join('vues', 'media.id_media', '=', 'vues.id_media')
+                    ->where('id_utilisateurs',Auth::user()->id)
+                  
+                    ->get();
         $myFarories= DB::table('jaimes')
                     ->join('users', 'users.id', '=', 'jaimes.id_utilisateurs')
                     ->join('media', 'media.id_media', '=', 'jaimes.id_media')
                     ->where('users.id',Auth::user()->id)
                     //
                     ->get();
-
-                  $d= 0;
+        $d= 0;
                     for ($i = 0; $i<count($myFarories);$i++){
                         $testf[$i] = $myFarories[$i]->titre;
                         $d++;
                     } 
-                   // print_r($myFarories[0]->titre);
+        $abonnéM = playliste_user::where('id_user',Auth::user()->id)
+                    ->where('id_playliste',22)
+                    ->get();
+        $abonnéG = playliste_user::where('id_user',Auth::user()->id)
+                    ->where('id_playliste',23)
+                    ->get();
+        $abonnéS = playliste_user::where('id_user',Auth::user()->id)
+                    ->where('id_playliste',24)
+                    ->get();           
 
-         return view('mapage',['films'=>$films, 'myPlaylists'=>$myPlaylists, 'c'=>$c,'d'=>$d,'myFavories'=>$myFarories]);
+        return view('mapage',['films'=>$films, 'myPlaylists'=>$myPlaylists,'myVues'=>$myVues, 'c'=>$c,'d'=>$d,'abonnéM'=>$abonnéM,'abonnéG'=>$abonnéG,'abonnéS'=>$abonnéS,'myFavories'=>$myFarories]);
         
     }
 
